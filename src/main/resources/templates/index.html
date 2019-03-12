@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:if="${weather!=null}" th:text="${weather.getName()}"></span>
+<h1>Temperatura aktualna</h1>
+Temperatura : <span th:if="${weather!=null}" th:text="${weather.getMain().getTemp()}"></span><br>
+Ciśnienie : <span th:if="${weather!=null}" th:text="${weather.getMain().getPressure()}"></span><br>
+Wilgotność: <span th:if="${weather!=null}" th:text="${weather.getMain().getHumidity()}"></span><br>
+<form th:action="@{/pogoda}" method="post">
+    <input type="text" name="city">
+    <button type="submit">Szukaj</button>
+</form>
+</body>
+</html>
